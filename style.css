@@ -5,15 +5,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: rgb(82, 57, 57);
+  background-color: #0d1117;
+  overflow: hidden;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
 }
+
 .search {
   margin: 20px 0 0 0;
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+
 input {
   border: none;
   border-bottom: 1px solid black;
@@ -22,13 +29,14 @@ input {
   padding: 3px;
   border-radius: 10px;
 }
+
 input:focus {
   background-color: transparent;
   border: none;
   outline: none;
   border-bottom: 1px solid black;
-  /* transition: 2s ease-in-out; */
 }
+
 button {
   padding: 5px;
   text-align: center;
@@ -39,10 +47,12 @@ button {
   background-color: transparent;
   transition: 0.5s ease-in-out;
 }
+
 button:hover {
   transform: translateY(-2px);
   box-shadow: 0px 1px 5px white;
 }
+
 .avatar {
   border: 1px solid black;
   width: 90%;
@@ -50,17 +60,18 @@ button:hover {
   border-radius: 20px;
   padding: 20px;
   margin-top: 20px;
-  /* display: none; */
-  transition: 0.2 ease;
+  transition: 0.2s ease;
   display: flex;
   gap: 10px;
 }
+
 .result {
   display: block;
   transition: 0.2 ease-in-out;
   display: flex;
   gap: 5px;
 }
+
 .leftContainer {
   width: 30%;
   border: 1px solid black;
@@ -73,6 +84,7 @@ img {
   width: 300px;
   border-radius: 50%;
 }
+
 .follow {
   display: flex;
   justify-content: center;
@@ -80,20 +92,18 @@ img {
   font-family: "MuseoModerno";
   font-weight: bold;
 }
-/* anime profile wala user: JohnKun136NVCP 
-  ibtriz
-*/
+
 .notFound {
   font-weight: bold;
   font-family: "MuseoModerno";
   display: flex;
   justify-content: center;
 }
+
 .rightContainer {
   width: 70%;
   border: 1px solid black;
   background-color: gray;
-  /* height: 100%; */
   font-family: "MuseoModerno";
   font-weight: bold;
   padding: 10px;
@@ -103,6 +113,7 @@ img {
   gap: 2px;
   align-items: center;
 }
+
 .topContainer {
   width: 90%;
   margin: auto;
@@ -110,6 +121,7 @@ img {
   text-align: center;
   padding: 5px;
 }
+
 .bottomContainer {
   width: 90%;
   margin: auto;
@@ -132,4 +144,69 @@ img {
     height: 50%;
     width: 50%;
   }
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.circle1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 10%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.6), transparent);
+}
+
+.circle2 {
+  width: 300px;
+  height: 300px;
+  bottom: 20%;
+  right: 20%;
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.6), transparent);
+}
+
+.circle3 {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.6), transparent);
+}
+
+.circle4 {
+  width: 150px;
+  height: 150px;
+  bottom: 30%;
+  left: 25%;
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.6), transparent);
+}
+
+.circle5 {
+  width: 350px;
+  height: 350px;
+  top: 15%;
+  right: 25%;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.6), transparent);
+}
+
+.circle6 {
+  width: 100px;
+  height: 100px;
+  bottom: 10%;
+  right: 10%;
+  background: radial-gradient(circle, rgba(0, 0, 255, 0.6), transparent);
 }
