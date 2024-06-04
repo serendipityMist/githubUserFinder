@@ -1,6 +1,5 @@
 const user = document.querySelector("#userName");
-// console.log(user);
-const btn = document.querySelector("button");
+const btn = document.querySelector("#searchButton");
 const avatar = document.querySelector(".avatar");
 const avatarShow = document.querySelector("#avatarShow");
 const follower = document.querySelector("#followers");
@@ -14,46 +13,35 @@ const company = document.querySelector("#company");
 const repo = document.querySelector("#publicRepo");
 
 btn.addEventListener("click", () => {
+  console.log(`The button is clicked`);
   const uGet = user.value;
   console.log(uGet);
 
   fetch(`https://api.github.com/users/${uGet}`)
     .then((response) => {
+      if (!response.ok) {
+        throw new Error("User not found");
+      }
       return response.json();
     })
     .then((data) => {
       avatar.classList.add("result");
       avatarShow.src = data.avatar_url;
-      follower.textContent = `Followers: 
-      ${data.followers}`;
-      company.textContent = `Company: ${data.company}`;
-      data.company
-        ? (company.textContent = `Company: ${data.company}`)
-        : (company.textContent = `Company: No Company`);
+      follower.textContent = `Followers: ${data.followers}`;
+      company.textContent = data.company
+        ? `Company: ${data.company}`
+        : `Company: No Company`;
       following.textContent = `Following: ${data.following}`;
       userName.textContent = `Name: ${data.name}`;
       repo.textContent = `Public-Repos: ${data.public_repos}`;
-
-      if (!data.bio) {
-        // bio.textContent = "No bio has been added";
-        bio.textContent = "Bio: No Bio ";
-      } else {
-        bio.textContent = `Bio: ${data.bio}`;
-      }
-      if (!data.location) {
-        console.log("User has no location");
-        getLocation.textContent = `Location: No Location`;
-      } else {
-        getLocation.textContent = `Location: ${data.location}`;
-        console.log("working");
-      }
-      // avatar.innerHTML = data.avatar_url;
+      bio.textContent = data.bio ? `Bio: ${data.bio}` : "Bio: No Bio";
+      getLocation.textContent = data.location
+        ? `Location: ${data.location}`
+        : `Location: No Location`;
     })
     .catch((err) => {
-      console.log(`failed to fetch data`);
-      // if (!user.login) {
-      //   avatar.innerHTML = `<p> User not found </p>  `;
-      // }
+      console.error(err);
+      alert("User data could not be fetched.");
     });
   user.value = "";
 });
