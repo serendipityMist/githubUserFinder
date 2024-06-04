@@ -116,7 +116,11 @@ button:hover {
   width: 30%;
   border: 1px solid black;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.843);
+
   padding: 5px;
+  position: relative;
+  z-index: 99999999999999;
 }
 
 img {
