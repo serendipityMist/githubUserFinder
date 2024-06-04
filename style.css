@@ -63,8 +63,46 @@ button:hover {
   transition: 0.2s ease;
   display: flex;
   gap: 10px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(15, 23, 42, 0.8) 100%
+    ),
+    url("https://www.transparenttextures.com/patterns/black-linen.png");
+  background-size: cover;
+  position: relative;
 }
 
+.avatar::before,
+.avatar::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.avatar::before {
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: stars 50s linear infinite;
+}
+
+.avatar::after {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+/* Animation for stars */
+@keyframes stars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 1000px;
+  }
+}
 .result {
   display: block;
   transition: 0.2 ease-in-out;
