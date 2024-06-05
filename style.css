@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-weight: bold;
 }
 
 body {
@@ -47,12 +48,13 @@ button {
   border: 1px solid white;
   color: white;
   background-color: transparent;
-  transition: 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0px 1px 5px white;
+  box-shadow: 0px 1px 1px white;
+  cursor: pointer;
 }
 
 .avatar {
