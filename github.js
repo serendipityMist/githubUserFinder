@@ -22,10 +22,10 @@ btn.addEventListener("click", () => {
       if (!response.ok) {
         throw new Error("User not found");
       }
+      avatar.classList.add("result");
       return response.json();
     })
     .then((data) => {
-      avatar.classList.add("result");
       avatarShow.src = data.avatar_url;
       follower.textContent = `Followers: ${data.followers}`;
       company.textContent = data.company

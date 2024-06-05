@@ -73,6 +73,7 @@ button:hover {
     url("https://www.transparenttextures.com/patterns/black-linen.png");
   background-size: cover;
   position: relative;
+  display: none;
 }
 
 .avatar::before,
